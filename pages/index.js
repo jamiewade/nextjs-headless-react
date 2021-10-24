@@ -16,7 +16,9 @@ export default function Home({ blogPosts }) {
 			{ blogPosts.map(blogPost => {
 				return (
 					<div key={ blogPost.id }>
-						<Card title={ blogPost.title } />
+						<Card date={ blogPost.postDate }
+							summary={ blogPost.summary }
+							title={ blogPost.title } />
 					</div>
 				)
 			}) }
@@ -30,7 +32,11 @@ export async function getStaticProps() {
 			query GetBlogPosts {
 				entries (section: "blog") {
 					id,
+					postDate @formatDateTime (format: "jS F Y"),
 					title
+					... on blog_blogPost_Entry {
+						summary
+					}
 				}
 			}
 		`
