@@ -1,4 +1,5 @@
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
+import Card from "../components/cards/Card"
 
 const client = new ApolloClient({
 	uri: "http://cms.test/api",
@@ -15,7 +16,7 @@ export default function Home({ blogPosts }) {
 			{ blogPosts.map(blogPost => {
 				return (
 					<div key={ blogPost.id }>
-						<h2>{ blogPost.title }</h2>
+						<Card title={ blogPost.title } />
 					</div>
 				)
 			}) }
