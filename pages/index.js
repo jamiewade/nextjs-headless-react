@@ -1,5 +1,10 @@
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 
+const client = new ApolloClient({
+	uri: "http://cms.test/api",
+	cache: new InMemoryCache()
+});
+
 export default function Home({ blogPosts }) {
 	return (
 		<div>
@@ -19,11 +24,6 @@ export default function Home({ blogPosts }) {
 }
 
 export async function getStaticProps() {
-	const client = new ApolloClient({
-		uri: 'http://cms.test/api/',
-		cache: new InMemoryCache()
-	});
-
 	const { data } = await client.query({
 		query: gql`
 			query GetBlogPosts {
