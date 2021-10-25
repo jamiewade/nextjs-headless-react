@@ -1,4 +1,4 @@
-import ContentArea from "components/layouts/LeftSidebar"
+import ContentArea from "components/layouts/RightSidebar"
 
 const ExamplePage02 = () => {
 	return (

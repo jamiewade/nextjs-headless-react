@@ -1,3 +1,4 @@
+import PageTitle from "components/common/PageTitle";
 import Sidebar from "components/common/Sidebar";
 
 const LeftSidebar = props => (
@@ -7,7 +8,11 @@ const LeftSidebar = props => (
 		</div>
 
 		<div className="ml-auto p-12 w-3/4">
-			{props.children}
+			<div className="flex flex-col gap-6 w-full h-full">
+				<PageTitle title="Left Sidebar Lorem Ipsum Dolor Sit" />
+
+				{props.children}
+			</div>
 		</div>
 	</div>
 );
