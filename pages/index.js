@@ -40,10 +40,12 @@ export async function getStaticProps() {
 							__typename,
 							... on contentBuilder_richText_BlockType {
 								id,
-								text
+								text,
+								textAlign
 							},
 							... on contentBuilder_button_BlockType {
 								id,
+								buttonColour,
 								buttonTarget,
 								buttonText
 							}
