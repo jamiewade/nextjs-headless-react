@@ -1,3 +1,5 @@
+import ContentArea from "components/layouts/LeftSidebar"
+
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 import Card from "../components/cards/Card"
 
@@ -6,13 +8,9 @@ const client = new ApolloClient({
 	cache: new InMemoryCache()
 });
 
-export default function Home({ blogPosts }) {
+const Index = ({ blogPosts }) => {
 	return (
-		<div className="container">
-			<h1>Welcome</h1>
-
-			<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam aliquid nemo dicta mollitia ab explicabo temporibus nisi illum molestias unde odit magni soluta aut nulla iusto, modi minus quaerat atque.</p>
-
+		<ContentArea>
 			{ blogPosts.map(blogPost => {
 				return (
 					<div key={ blogPost.id }>
@@ -23,9 +21,9 @@ export default function Home({ blogPosts }) {
 					</div>
 				)
 			}) }
-		</div>
+		</ContentArea>
 	)
-}
+};
 
 export async function getStaticProps() {
 	const { data } = await client.query({
@@ -63,3 +61,5 @@ export async function getStaticProps() {
 		}
 	}
 }
+
+export default Index;
