@@ -16,7 +16,8 @@ export default function Home({ blogPosts }) {
 			{ blogPosts.map(blogPost => {
 				return (
 					<div key={ blogPost.id }>
-						<Card date={ blogPost.postDate }
+						<Card content={ blogPost.contentBuilder }
+							date={ blogPost.postDate }
 							summary={ blogPost.summary }
 							title={ blogPost.title } />
 					</div>
@@ -35,6 +36,18 @@ export async function getStaticProps() {
 					postDate @formatDateTime (format: "jS F Y"),
 					title
 					... on blog_blogPost_Entry {
+						contentBuilder {
+							__typename,
+							... on contentBuilder_richText_BlockType {
+								id,
+								text
+							},
+							... on contentBuilder_button_BlockType {
+								id,
+								buttonTarget,
+								buttonText
+							}
+						},
 						summary
 					}
 				}
