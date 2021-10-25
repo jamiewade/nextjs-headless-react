@@ -3,7 +3,7 @@ import Link from "next/link"
 export default function PrimaryNavigation() {
 	return (
 		<div>
-			<ul className="flex flex-col gap-2">
+			<ul className="flex flex-col gap-3 text-center text-xl">
 				<li>
 					<Link href="/">
 						<a>Home</a>
