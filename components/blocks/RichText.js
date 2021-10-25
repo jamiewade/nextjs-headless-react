@@ -5,7 +5,7 @@ function createMarkup(content) {
 export default function RichText({ content }) {
 	if (content) {
 		return (
-			<div>
+			<div className="max-w-none prose">
 				<div dangerouslySetInnerHTML={createMarkup(content)} />
 			</div>
 		)
