@@ -8,7 +8,7 @@ const client = new ApolloClient({
 
 export default function Home({ blogPosts }) {
 	return (
-		<div>
+		<div className="container">
 			<h1>Welcome</h1>
 
 			<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam aliquid nemo dicta mollitia ab explicabo temporibus nisi illum molestias unde odit magni soluta aut nulla iusto, modi minus quaerat atque.</p>
