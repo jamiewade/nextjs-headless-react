@@ -1,5 +1,5 @@
-import Button from "components/blocks/Button"
-import RichText from "components/blocks/RichText"
+import Button from "components/content/blocks/Button"
+import RichText from "components/content/blocks/RichText"
 
 export default function Card({ content, date, summary, title }) {
 	return (
